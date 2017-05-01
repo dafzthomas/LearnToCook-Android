@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "353644228993",
+    "firebase_url": "https://recipes-app-b0961.firebaseio.com",
+    "project_id": "recipes-app-b0961",
+    "storage_bucket": "recipes-app-b0961.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353644228993:android:4624eb13da4b39f1",
+        "android_client_info": {
+          "package_name": "com.apps.dafz.learntocook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353644228993-mv8hjajhus05tvo008ph9km3m6094v3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYOgQAq7VXL_fdH_80ZLeeD1xzH44ED0A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

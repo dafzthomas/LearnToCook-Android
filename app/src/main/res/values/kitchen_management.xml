@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kitchen_management_title">Kitchen Management</string>
+    <string name="kitchen_management_subtitle">A good cook keeps a good kitchen. This means efficient shopping, and knowing what you have (and should have) in your storecupboard and fridge.</string>
+</resources>

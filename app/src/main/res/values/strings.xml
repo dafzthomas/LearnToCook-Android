@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Learn To Cook</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_kitchen_equipment">KitchenEquipment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="recipes_title">Recipes</string>
+    <string name="title_activity_kitchen_management">Kitchen Management</string>
+    <string name="title_activity_cookery_terms">Cookery Terms</string>
+    <string name="title_activity_essential_tips">Essential Tips</string>
+    <string name="title_activity_recipes">Recipes</string>
+    <string name="home">Home</string>
+    <string name="title_activity_quiz">Quiz</string>
+</resources>

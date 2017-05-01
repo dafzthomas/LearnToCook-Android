@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cookery_terms">Cookery Terms</string>
+    <string name="cookery_terms_subtitle">This is a commonsense app, so if there are terms which aren\'t familiar you should find them here.</string>
+</resources>
