@@ -27,6 +27,11 @@ public class Recipe {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public Recipe() {
 
     }
+
+
 }

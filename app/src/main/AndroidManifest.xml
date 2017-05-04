@@ -43,7 +43,14 @@
         <activity
             android:name=".Quiz"
             android:label="@string/title_activity_quiz"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyRecipes"
+            android:label="@string/title_activity_my_recipes"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SingleRecipeFull"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

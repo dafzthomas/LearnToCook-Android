@@ -27,6 +27,10 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/recipes_title" />
         <item
+            android:id="@+id/nav_my_recipes"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/my_recipes" />
+        <item
             android:id="@+id/nav_quiz"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/title_activity_quiz" />

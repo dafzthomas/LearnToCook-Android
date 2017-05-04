@@ -103,6 +103,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_recipes) {
             Intent intent = new Intent(this, Recipes.class);
             startActivity(intent);
+        } else if (id == R.id.nav_my_recipes) {
+            Intent intent = new Intent(this, MyRecipes.class);
+            startActivity(intent);
         } else if (id == R.id.nav_quiz) {
             Intent intent = new Intent(this, Quiz.class);
             startActivity(intent);

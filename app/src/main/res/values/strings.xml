@@ -15,4 +15,8 @@
     <string name="title_activity_recipes">Recipes</string>
     <string name="home">Home</string>
     <string name="title_activity_quiz">Quiz</string>
+    <string name="title_activity_my_recipes">MyRecipes</string>
+    <string name="my_recipes">My Recipes</string>
+    <string name="title_activity_thing">THing</string>
+    <string name="title_activity_single_recipe_full">SingleRecipeFull</string>
 </resources>

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "353644228993-ehqd91tgrbr4masort302u62nphh82pq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apps.dafz.learntocook",
+            "certificate_hash": "f0bdeddfc2dbf2e0944fce4da8368f3870f807e2"
+          }
+        },
+        {
           "client_id": "353644228993-mv8hjajhus05tvo008ph9km3m6094v3i.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353644228993-mv8hjajhus05tvo008ph9km3m6094v3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
