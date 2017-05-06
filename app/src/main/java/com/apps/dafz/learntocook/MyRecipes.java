@@ -155,20 +155,14 @@ public class MyRecipes extends MainActivity implements AdapterView.OnItemClickLi
 
         // gets the name, height data from the UI
         final String name = mCursor.getString(mCursor.getColumnIndex("name"));
-        final String text = mCursor.getString(mCursor.getColumnIndex("text"));;
+        final String text = mCursor.getString(mCursor.getColumnIndex("text"));
 
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("STRING CLICK: ", view.toString());
+        Intent intent = new Intent(MyRecipes.this, SingleRecipeFull.class);
+        intent.putExtra("Title", name);
+        intent.putExtra("Text", text);
 
-                Intent intent = new Intent(MyRecipes.this, SingleRecipeFull.class);
-                intent.putExtra("Title", name);
-                intent.putExtra("Text", text);
+        startActivity(intent);
 
-                startActivity(intent);
-            }
-        });
     }
 
 
