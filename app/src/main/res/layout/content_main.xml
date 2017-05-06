@@ -17,5 +17,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/commonsense_a_guide"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cooking_is_not_difficult_to_be_a_great_chef_you_need_flair_and_imagination_but_to_produce_delicious_foolproof_everyday_meals_all_you_need_is_a_little_commonsense"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <ImageView
+        android:id="@+id/mainImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/good_cooking_begins_with_sensible_shopping_correct_storage_of_ingredients_handling_food_safely_and_enthusiasm_for_the_task_at_hand_the_first_decision_you_will_make_is_what_to_cook_n_nto_a_certain_extent_this_question_should_be_answered_by_what_is_in_season_make_friends_with_your_greengrocer_butcher_and_fishmonger_and_don_t_be_afraid_to_ask_what_s_good_today_ideally_shop_for_fresh_fruit_and_vegetables_regularly_if_not_daily_this_prevents_waste_and_ensures_that_you_are_using_the_freshest_possible_produce_of_course_this_is_not_always_possible_so_if_you_need_to_shop_less_frequently_try_to_plan_your_meals_to_make_the_best_use_of_your_fresh_ingredients_n_nproduce_which_is_in_season_is_better_value_and_quality_don_t_try_to_make_asparagus_hollandaise_for_eight_dinner_guests_if_there_are_no_good_quality_fresh_asparagus_available_choose_another_recipe_the_golden_commonsense_rule_of_cooking_is_always_read_the_recipe_before_you_start_don_t_rush_in_at_step_1_and_work_your_way_through_blind"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </LinearLayout>

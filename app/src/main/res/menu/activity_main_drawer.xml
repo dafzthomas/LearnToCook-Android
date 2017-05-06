@@ -4,35 +4,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
             android:title="@string/home" />
         <item
             android:id="@+id/nav_kitchen_equipment"
-            android:icon="@drawable/ic_menu_camera"
             android:title="@string/kitchen_equipment_title" />
         <item
             android:id="@+id/nav_kitchen_management"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="@string/kitchen_management_title" />
         <item
             android:id="@+id/nav_cookery_terms"
-            android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/cookery_terms" />
         <item
             android:id="@+id/nav_essential_tips"
-            android:icon="@drawable/ic_menu_manage"
             android:title="@string/essential_tips_title" />
         <item
             android:id="@+id/nav_recipes"
-            android:icon="@drawable/ic_menu_manage"
             android:title="@string/recipes_title" />
         <item
             android:id="@+id/nav_my_recipes"
-            android:icon="@drawable/ic_menu_manage"
             android:title="@string/my_recipes" />
         <item
             android:id="@+id/nav_quiz"
-            android:icon="@drawable/ic_menu_manage"
             android:title="@string/title_activity_quiz" />
     </group>
 

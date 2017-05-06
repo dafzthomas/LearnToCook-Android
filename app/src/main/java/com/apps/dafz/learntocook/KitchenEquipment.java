@@ -1,6 +1,9 @@
 package com.apps.dafz.learntocook;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -12,8 +15,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.apps.dafz.learntocook.models.Tip;
 import com.bumptech.glide.Glide;
@@ -28,7 +33,10 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class KitchenEquipment extends MainActivity {
+public class KitchenEquipment extends MainActivity implements MediaPlayer.OnPreparedListener {
+
+    private VideoView video;
+    private MediaController mc;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +55,53 @@ public class KitchenEquipment extends MainActivity {
 
         navigationView.getMenu().getItem(1).setChecked(true);
 
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.kitchen_equipment;
+
+        video = (VideoView) findViewById(R.id.videoView);
+        mc = new MediaController(this);
+        video.setVideoPath(path);
+        video.setOnPreparedListener(this);
+        video.setMediaController(mc);
+        video.requestFocus();
+
         getKitchenEquipment();
     }
+
+    @Override
+    public void onStop()
+    {
+        // really important - does most of the actual work
+        super.onStop();
+        // if the video is playing, stops it
+        stopVideo();
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mediaPlayer)
+    {
+        // starts the video playing
+        video.start();
+        // attaches the controller, now we know how
+        // big the display area needs to be
+        mc.setAnchorView(video);
+        // briefly shows the controls UI
+        mc.show();
+    }
+
+    private void stopVideo()
+    {
+        if (video.isPlaying())
+        {
+            // stops the video
+            video.stopPlayback();
+
+            // Sets the player back to an uninitialised state.
+            // Stops the widget from loading more of the old video
+            // and from generating events for the old video stream.
+            video.setVideoURI(null);
+        }
+    }
+
 
     public void setAdaptor(JSONArray response) {
         ArrayList<Tip> arrayOfEquipment = new ArrayList<Tip>();

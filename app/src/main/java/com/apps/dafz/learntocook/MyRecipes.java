@@ -1,7 +1,10 @@
 package com.apps.dafz.learntocook;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,11 +17,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.apps.dafz.learntocook.helpers.Contract;
+import com.apps.dafz.learntocook.helpers.DBHelper;
 import com.apps.dafz.learntocook.models.Recipe;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -33,13 +41,20 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MyRecipes extends MainActivity {
+public class MyRecipes extends MainActivity implements AdapterView.OnItemClickListener {
 
-    // [START declare_database_ref]
-    private DatabaseReference mDatabase;
-    // [END declare_database_ref]
+    private EditText mName;
+    private EditText mText;
 
-    private DatabaseReference mRecipesReference;
+    private ListView mList;
+    private DBHelper mHelper;
+
+    private SQLiteDatabase mDB;
+
+    private Cursor mCursor;
+
+    private SimpleCursorAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +62,6 @@ public class MyRecipes extends MainActivity {
         setContentView(R.layout.activity_my_recipes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -66,111 +72,105 @@ public class MyRecipes extends MainActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.getMenu().getItem(0).setChecked(true);
+        navigationView.getMenu().getItem(6).setChecked(true);
 
-        // [START initialize_database_ref]
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        // [END initialize_database_ref]
+        // grabs the edit text fields in the UI
+        mName = (EditText) findViewById(R.id.edit_name);
+        mText = (EditText) findViewById(R.id.edit_height);
 
-        mRecipesReference = FirebaseDatabase.getInstance().getReference()
-                .child("Recipes");
+        // sets up the list view with an item-click event handler
+        mList = (ListView) findViewById(R.id.lvMyRecipes);
+        mList.setOnItemClickListener(this);
+
+        // initialises the DB if it doesn't exist
+        mHelper = new DBHelper(this);
 
 
+    }
 
-        // Read from the database
-        mRecipesReference.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        // gets a connection to the DB
+        mDB = mHelper.getWritableDatabase();
+
+        // cals the convenience method getAll() which grabs the whole table
+        mCursor = mHelper.getAll(mDB);
+
+        // connects the list to the data - these are the two fields to view
+        String[] headers = new String[]{Contract.Example.COLNAME_NAME,
+                Contract.Example.COLNAME_TEXT};
+
+        // creates an adapter from a really useful stock Android
+        // built-in layout. Note the use of the built-in
+        // "android.R.id...", not this app's "R.id..."
+        mAdapter = new SimpleCursorAdapter(this,
+                R.layout.single_recipe,
+                mCursor, headers, new int[]{R.id.Title,
+                R.id.Text}, 0);
+
+        // links the adapter to the list viewer
+        mList.setAdapter(mAdapter);
+    }
+
+    public void onClick(View v)
+    {
+        // gets the name, height data from the UI
+        String name = mName.getText().toString();
+        String text = mText.getText().toString();
+
+        mName.setText("");
+        mText.setText("");
+
+        // adds the record to the DB
+        ContentValues cv = new ContentValues(2);
+        cv.put(Contract.Example.COLNAME_NAME, name);
+        cv.put(Contract.Example.COLNAME_TEXT, text);
+        mDB.insert(Contract.Example.TABLE_NAME, null, cv);
+
+        // the list has changed, so we query the DB and
+        // give the adapter an updated Cursor of data
+        mCursor = mHelper.getAll(mDB);
+        mAdapter.changeCursor(mCursor);
+
+        // forces the updated list to refresh the display
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        mDB.close();
+        mCursor.close();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+    {
+        // moves to the position in the DB given by the listview click
+        mCursor.moveToPosition(position);
+
+        // gets the name, height data from the UI
+        final String name = mCursor.getString(mCursor.getColumnIndex("name"));
+        final String text = mCursor.getString(mCursor.getColumnIndex("text"));;
+
+        v.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-//                Recipe value = dataSnapshot.getValue(Recipe.class);
-//
-//                Log.d("recipe", value.Title.toString());
+            public void onClick(View view) {
+                Log.d("STRING CLICK: ", view.toString());
 
-                ArrayList<Recipe> array = new ArrayList<Recipe>();
+                Intent intent = new Intent(MyRecipes.this, SingleRecipeFull.class);
+                intent.putExtra("Title", name);
+                intent.putExtra("Text", text);
 
-                Log.e("Count " ,"" + snapshot.getChildrenCount());
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-//                    Log.d("STRING", postSnapshot.toString());
-                    Recipe recipe = postSnapshot.getValue(Recipe.class);
-
-                    array.add(recipe);
-
-                    Log.d("Get Data", recipe.toString());
-                }
-
-                setAdaptor(array);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.d("Failed to read value.", error.toException().toString());
+                startActivity(intent);
             }
         });
-
     }
 
-    public void setAdaptor(ArrayList<Recipe> arrayOfRecipes) {
 
-
-        // Create the adapter to convert the array to views
-        MyRecipes.RecipesAdaptor adapter = new MyRecipes.RecipesAdaptor(this, arrayOfRecipes);
-        // Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.lvMyRecipes);
-        listView.setAdapter(adapter);
-    }
-
-    private class RecipesAdaptor extends ArrayAdapter<Recipe> {
-        private RecipesAdaptor(Context context, ArrayList<Recipe> recipes) {
-            super(context, 0, recipes);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            // Get the data item for this position
-            final Recipe recipe = getItem(position);
-
-            // Check if an existing view is being reused, otherwise inflate the view
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.single_recipe, parent, false);
-            }
-            // Lookup view for data population
-            TextView title = (TextView) convertView.findViewById(R.id.Title);
-            ImageView image = (ImageView) convertView.findViewById(R.id.Image);
-
-
-            // Populate the data into the template view using the data object
-            title.setText(recipe.Title);
-            Glide.with(getContext()).load(recipe.Image).into(image);
-
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d("STRING CLICK: ", view.toString());
-
-                    Intent intent = new Intent(MyRecipes.this, SingleRecipeFull.class);
-                    intent.putExtra("Image", recipe.Image);
-                    intent.putExtra("Title", recipe.Title);
-                    intent.putExtra("Text", recipe.Text);
-                    intent.putExtra("Serves", recipe.Serves);
-                    intent.putExtra("PrepTime", recipe.PrepTime);
-                    intent.putExtra("CookingTime", recipe.CookingTime);
-                    intent.putExtra("Ingredients", recipe.Ingredients);
-                    intent.putExtra("Method", recipe.Method);
-
-                    startActivity(intent);
-                }
-            });
-
-            // Return the completed view to render on screen
-            return convertView;
-        }
-    }
-
-    public void addRecipe(String name) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("recipes" + name);
-    }
 
 }

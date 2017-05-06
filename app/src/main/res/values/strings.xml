@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_kitchen_equipment">KitchenEquipment</string>
+    <string name="title_activity_kitchen_equipment">Kitchen Equipment</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="recipes_title">Recipes</string>
@@ -15,8 +15,14 @@
     <string name="title_activity_recipes">Recipes</string>
     <string name="home">Home</string>
     <string name="title_activity_quiz">Quiz</string>
-    <string name="title_activity_my_recipes">MyRecipes</string>
+    <string name="title_activity_my_recipes">My Recipes</string>
     <string name="my_recipes">My Recipes</string>
     <string name="title_activity_thing">THing</string>
     <string name="title_activity_single_recipe_full">SingleRecipeFull</string>
+    <string name="title_activity_quiz_complete">Quiz Complete</string>
+    <string name="quiz_finished">Quiz finished</string>
+    <string name="restart_quiz">Restart Quiz</string>
+    <string name="commonsense_a_guide">Commonsense \nA guide</string>
+    <string name="cooking_is_not_difficult_to_be_a_great_chef_you_need_flair_and_imagination_but_to_produce_delicious_foolproof_everyday_meals_all_you_need_is_a_little_commonsense">Cooking is not difficult. To be a great chef you need flair and imagination. But to produce delicious foolproof everyday meals all you need is a little commonsense.</string>
+    <string name="good_cooking_begins_with_sensible_shopping_correct_storage_of_ingredients_handling_food_safely_and_enthusiasm_for_the_task_at_hand_the_first_decision_you_will_make_is_what_to_cook_n_nto_a_certain_extent_this_question_should_be_answered_by_what_is_in_season_make_friends_with_your_greengrocer_butcher_and_fishmonger_and_don_t_be_afraid_to_ask_what_s_good_today_ideally_shop_for_fresh_fruit_and_vegetables_regularly_if_not_daily_this_prevents_waste_and_ensures_that_you_are_using_the_freshest_possible_produce_of_course_this_is_not_always_possible_so_if_you_need_to_shop_less_frequently_try_to_plan_your_meals_to_make_the_best_use_of_your_fresh_ingredients_n_nproduce_which_is_in_season_is_better_value_and_quality_don_t_try_to_make_asparagus_hollandaise_for_eight_dinner_guests_if_there_are_no_good_quality_fresh_asparagus_available_choose_another_recipe_the_golden_commonsense_rule_of_cooking_is_always_read_the_recipe_before_you_start_don_t_rush_in_at_step_1_and_work_your_way_through_blind">Good cooking begins with sensible shopping, correct storage of ingredients, handling food safely and enthusiasm for the task at hand. The first decision you will make is \'what to cook?\'.   To a certain extent this question should be answered by what is in season. Make friends with your greengrocer, butcher and fishmonger and don\'t be afraid to ask \'what\'s good today?\' Ideally, shop for fresh fruit and vegetables regularly, if not daily. This prevents waste and ensures that you are using the freshest possible produce. Of course this is not always possible, so if you need to shop less frequently, try to plan your meals to make the best use of your fresh ingredients.   Produce which is in season is better value and quality. Don\'t try to make asparagus hollandaise for eight dinner guests if there are no good-quality fresh asparagus available. Choose another recipe. The golden commonsense rule of cooking is always read the recipe before you start. Don\'t rush in at step 1 and work your way through blind.</string>
 </resources>

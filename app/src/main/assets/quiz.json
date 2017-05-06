@@ -1,0 +1,92 @@
+[
+    {
+      "Title": "Question 1",
+      "Q": "In recipes what is meant when a measurement contains 'tbsp'?",
+      "Ans1": "Tenspoon",
+      "Ans2": "Tablespoon",
+      "Ans3": "Teaspoon",
+      "Correct": "Tablespoon",
+      "Reason": "Notice the 'b' in 'tbsp'."
+    },
+    {
+      "Title": "Question 2",
+      "Q": "What kind of whisk should you use for beating egg whites?",
+      "Ans1": "Wooden",
+      "Ans2": "Plastic",
+      "Ans3": "Metal",
+      "Correct": "Metal",
+      "Reason": "A metal whisk incorporates more air in the egg whites which is essential."
+    },
+    {
+      "Title": "Question 3",
+      "Q": "What does the term 'Flambe' mean?",
+      "Ans1": "To cook chicken over a fire",
+      "Ans2": "To pour liqeur over food (usually in the pan, over heat) and set fire to it.",
+      "Ans3": "To flame your food with a blowtorch to golden the outside of relevant foods.",
+      "Correct": "To pour liqeur over food (usually in the pan, over heat) and set fire to it.",
+      "Reason": ""
+    },
+    {
+      "Title": "Question 4",
+      "Q": "Where should you keep potatoes?",
+      "Ans1": "In the fridge",
+      "Ans2": "Cool dry place - ventilated",
+      "Ans3": "Cool dry place - non-ventilated",
+      "Correct": "Cool dry place - ventilated",
+      "Reason": ""
+    },
+    {
+      "Title": "Question 5",
+      "Q": "What term describes food that is cooked entirely in pastry?",
+      "Ans1": "En croute",
+      "Ans2": "Wrap",
+      "Ans3": "Infuse",
+      "Correct": "En croute",
+      "Reason": ""
+    },
+    {
+      "Title": "Question 6",
+      "Q": "What utensil is used for safely serving hot soups and stews from a pan?",
+      "Ans1": "Wooden spoon",
+      "Ans2": "Jug",
+      "Ans3": "Ladle",
+      "Correct": "Ladle",
+      "Reason": ""
+    },
+    {
+      "Title": "Question 7",
+      "Q": "What benefit does a thick bottom (usually copper) of a pan give?",
+      "Ans1": "Cooks faster",
+      "Ans2": "Cooks evenly",
+      "Ans3": "Has no benefit ",
+      "Correct": "Cooks evenly",
+      "Reason": "These thick bases are good for distributing heat evenly making for evenly cooked food."
+    },
+    {
+      "Title": "Question 8",
+      "Q": "What is meant by having 'Pastry hands'?",
+      "Ans1": "Warm hands",
+      "Ans2": "Room temperature hands",
+      "Ans3": "Cool hands",
+      "Correct": "Cool hands",
+      "Reason": "Having cool hands is essential when making pastry helps prevent the fat from softening too much when rolling."
+    },
+    {
+      "Title": "Question 9",
+      "Q": "When you fillet meat you...?",
+      "Ans1": "Cut the meat from the bones",
+      "Ans2": "Stuff the meat with a filling for flavouring",
+      "Ans3": "Cook meat without removing bones",
+      "Correct": "Cut the meat from the bones",
+      "Reason": ""
+    },
+    {
+      "Title": "Question 10",
+      "Q": "To cut into uniform thin matchsticks fro quick cooking is refered to as...",
+      "Ans1": "Infuse",
+      "Ans2": "Score",
+      "Ans3": "Julienne",
+      "Correct": "Julienne",
+      "Reason": "Often used for stir-fries or in French cuisine."
+    }
+  ]
