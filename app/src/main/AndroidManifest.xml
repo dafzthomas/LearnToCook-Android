@@ -58,6 +58,10 @@
             android:name=".QuizComplete"
             android:label="@string/title_activity_quiz_complete"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UnitConverter"
+            android:label="@string/title_activity_unit_converter"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

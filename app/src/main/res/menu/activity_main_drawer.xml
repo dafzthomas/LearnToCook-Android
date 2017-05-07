@@ -26,6 +26,9 @@
         <item
             android:id="@+id/nav_quiz"
             android:title="@string/title_activity_quiz" />
+        <item
+            android:id="@+id/nav_unit_converter"
+            android:title="@string/title_activity_unit_converter" />
     </group>
 
 </menu>
